@@ -36,8 +36,8 @@ public:
     }
     vector<int> sortTransformedArray(vector<int> &nums, int a, int b, int c) {
         for (int i = 0 ; i < nums.size(); i++) {
-            int x = nums.;
-            nums[i] = a * x * x + b * x + c;
+            //int x = nums[i];
+            //nums[i] = a * x * x + b * x + c;
         }
         process(nums, 0, nums.size() - 1);
         return nums;

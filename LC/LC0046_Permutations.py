@@ -6,7 +6,4 @@ def test():
         temp = []
         #deep first search 
         
-        
-
-
 test()
