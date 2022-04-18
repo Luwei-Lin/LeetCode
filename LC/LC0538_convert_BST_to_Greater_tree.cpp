@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
 using namespace std;
 typedef unsigned long usint8;
 struct TreeNode {
@@ -51,6 +52,36 @@ public:
         convertBST_2(root->left);
         return root;
     }
+    //Stack version (inorder)
+    /*
+                  4
+               1      6
+            0   2    5   7
+                  3        8
+            
+
+    */
+    TreeNode* convertBST_3(TreeNode* root){
+        if (!root) return NULL;
+        TreeNode *copy = root;
+        stack<TreeNode*> st;
+        while (!st.empty() || root != NULL) {
+            if (root != NULL) {
+                st.push(root);
+                root = root->right;
+            } else {
+                sum += st.top()->val;
+                st.top()->val = sum; 
+                root = st.top(); st.pop(); // it is like jave root = stack.pop();
+                root = root->left;
+            }
+        }
+        return copy; //original root address. because we modify in the stack the root, lose track already.
+        
+    }
+
+
+
     /*
     TreeNode* convertBST_3(TreeNode *root){
         //stack implement
@@ -140,8 +171,8 @@ int main(){
     //inorder(root); //print in order 
    // cout << endl;
     Solution s;
-    //s.convertBST(root);
-    s.convertBST_2(root);
+    //s.convertBST(root);, here return is not originals node;
+    s.convertBST_3(root);
     cout << "changed output" <<endl;
     level(root);
 
