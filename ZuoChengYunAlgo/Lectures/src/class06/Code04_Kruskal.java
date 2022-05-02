@@ -3,7 +3,7 @@ package class06;
 import java.util.*;
 
 //undirected graph only
-public class Code_04_Kruskal {
+public class Code04_Kruskal {
     //Union-Find Set
 
     // use set memory address, simpler union-find MySets()
