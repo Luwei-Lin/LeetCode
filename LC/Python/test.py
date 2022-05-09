@@ -1,4 +1,21 @@
-from stack import Stack
+from distutils.log import error
+from logging import exception
+
+
+class Stack:
+    def __init__(self) -> None:
+        self.list = []
+    def push(self, item):
+        self.list.append(item)
+    def pop(self):
+        return self.list.pop()
+    def isEmpty(self):
+        return len(self.list) == 0
+    def peek(self):
+        if self.isEmpty():
+            raise ValueError('stack is empty')
+        return self.list[len(self.list) -1]
+    
 def infixToPostfix(expression) -> str:
     prec = {}
     prec["*"] = 3
@@ -22,8 +39,8 @@ def infixToPostfix(expression) -> str:
                 topToken = opStack.pop()
         else:
             while (not opStack.isEmpty()) and \
-               (prec[opStack.peek()] >= prec[token]):
-                  postfixList.append(opStack.pop())
+            (prec[opStack.peek()] >= prec[token]):
+                postfixList.append(opStack.pop())
             opStack.push(token)
 
     while not opStack.isEmpty():
@@ -167,7 +184,7 @@ def c(n, m):
     if (n - m) <0:
         ans = 0
     else:
-        ans = 1 + c((n-m), m)
+        ans = 1 + c((n - m), m)
 
 class Tree:
     def __init__(self, name, height, age):
@@ -177,7 +194,7 @@ class Tree:
     
 
 def by_age(tree):
-   return tree.age
+    return tree.age
 def by_height(tree):
     return tree.height
 
@@ -197,7 +214,7 @@ def test3():
         if  '0'<= c <= '9':
             pairs.get(c).append(tempColor)
     for k in pairs.keys():
-        tempList = pairs.get(k)
+        tempList = pairs.get(k, [])
         countB = 0
         countG = 0
         countR = 0

@@ -25,7 +25,7 @@ bool find132pattern_02(vector<int>& nums){
     cout << "]"<<endl;
 
     for (size_t j = nums.size() - 1; j >= 0; j--){
-        //build mono stack
+        //build monostack
         while (!si.empty() && si.top() < nums[j]){
             if (si.top() > mins[j]){
                 return true;
@@ -35,7 +35,6 @@ bool find132pattern_02(vector<int>& nums){
         si.push(nums[j]);
     }
     return false;
-
 }
 
 int main(){

@@ -18,7 +18,9 @@ def test1():
             table[n] = 1
     print(table)
     for e in nums2:
-        if e in table.keys() and table.get(e) > 0:
+        
+        if e in table.keys() and table.get(e, 0) > 0:
+            
             table[e] -= 1
             nums2[p] = e
             p += 1
