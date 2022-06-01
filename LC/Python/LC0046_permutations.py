@@ -2,7 +2,7 @@ from doctest import FAIL_FAST
 
 
 def test():
-    nums = [1, 2, 3]
+    nums = [1, 1, 3]
     ans = []
     used = [False for i in range( 0 , len(nums))]
     

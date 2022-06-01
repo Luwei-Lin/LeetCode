@@ -9,6 +9,7 @@ public class Code01_BFS {
         if(node == null){
             return;
         }
+        S
         Queue<Node> queue = new LinkedList<>();
         //in order to avoid the ring, so we prevent the node already checked by set.
         //检查去重的机制
