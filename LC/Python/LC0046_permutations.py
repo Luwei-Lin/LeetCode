@@ -14,6 +14,7 @@ def test():
             newTemp = temp.copy()
             ans.append(newTemp)
             return
+        
         for i in range (0, len(nums)):
             if used [i]:
                 continue
